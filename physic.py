@@ -1,71 +1,104 @@
-# -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'physicanalysis.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
+
 
 class Ui_SecondWindow(object):
-    def setupUi(self, mainWindow):
-        mainWindow.setObjectName("mainWindow")
-        mainWindow.resize(600, 522)
-        self.centralwidget = QtWidgets.QWidget(mainWindow)
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(877, 540)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(100, 40, 81, 31))
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(100, 80, 111, 16))
+        self.graph = QtWidgets.QWidget(self.centralwidget)
+        self.graph.setGeometry(QtCore.QRect(30, 30, 1500, 800))
+        self.graph.setObjectName("graph")
+        self.label_2 = QtWidgets.QLabel(self.graph)
+        self.label_2.setGeometry(QtCore.QRect(10, 80, 141, 41))
         self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(100, 130, 111, 16))
+        self.label = QtWidgets.QLabel(self.graph)
+        self.label.setGeometry(QtCore.QRect(10, 10, 161, 41))
+        self.label.setObjectName("label")
+        self.lineEdit = QtWidgets.QLineEdit(self.graph)
+        self.lineEdit.setGeometry(QtCore.QRect(260, 20, 113, 31))
+        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.graph)
+        self.lineEdit_2.setGeometry(QtCore.QRect(260, 80, 113, 31))
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label_3 = QtWidgets.QLabel(self.graph)
+        self.label_3.setGeometry(QtCore.QRect(10, 230, 291, 31))
         self.label_3.setObjectName("label_3")
-        self.height = QtWidgets.QTextEdit(self.centralwidget)
-        self.height.setGeometry(QtCore.QRect(200, 70, 171, 31))
-        self.height.setObjectName("height")
-        self.weight = QtWidgets.QTextEdit(self.centralwidget)
-        self.weight.setGeometry(QtCore.QRect(200, 120, 171, 31))
-        self.weight.setObjectName("weight")
-        self.calbmi = QtWidgets.QPushButton(self.centralwidget)
-        self.calbmi.setGeometry(QtCore.QRect(200, 190, 111, 31))
-        self.calbmi.setObjectName("calbmi")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(100, 270, 111, 16))
+
+        '''self.label_6 = QtWidgets.QLabel(self.graph)
+        self.label_6.setGeometry(QtCore.QRect(300, 300, 500, 500))
+        self.label_6.setPixmap(QPixmap('img.jpg'))'''
+
+        self.pushButton = QtWidgets.QPushButton(self.graph,clicked=lambda: self.onclick())
+        self.pushButton.setGeometry(QtCore.QRect(260, 150, 100, 60))
+        self.pushButton.setObjectName("pushButton")
+
+        #self.pushButton = QtWidgets.QPushButton(self.graph, clicked=lambda: self.onclick())
+
+        self.label_4 = QtWidgets.QLabel(self.graph)
+        self.label_4.setGeometry(QtCore.QRect(420, 30, 400, 250))
+
         self.label_4.setObjectName("label_4")
-        self.bmi = QtWidgets.QTextEdit(self.centralwidget)
-        self.bmi.setGeometry(QtCore.QRect(200, 260, 171, 31))
-        self.bmi.setObjectName("bmi")
-        mainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(mainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 21))
+        self.label_4.setPixmap(QPixmap('phyimg.jpg'))
+
+        self.DietPlan = QtWidgets.QLabel(self.graph)
+        self.DietPlan.setGeometry(QtCore.QRect(10, 290,1500,500))
+        self.DietPlan.setObjectName("")
+        ##self.DietPlan.setPixmap(QPixmap('imgjpg'))
+
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 877, 21))
         self.menubar.setObjectName("menubar")
-        mainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(mainWindow)
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        mainWindow.setStatusBar(self.statusbar)
+        MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(mainWindow)
-        QtCore.QMetaObject.connectSlotsByName(mainWindow)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, mainWindow):
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        mainWindow.setWindowTitle(_translate("mainWindow", "MainWindow"))
-        self.label.setText(_translate("mainWindow", "BMI"))
-        self.label_2.setText(_translate("mainWindow", "Enter Your Height:"))
-        self.label_3.setText(_translate("mainWindow", "Enter Your Weight:"))
-        self.calbmi.setText(_translate("mainWindow", "Calculate BMI"))
-        self.label_4.setText(_translate("mainWindow", "Your BMI :"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label_2.setText(_translate("MainWindow", "Enter Your Weigt(KG):"))
+        self.label.setText(_translate("MainWindow", "Enter Your Height In(CM)"))
+        self.label_3.setText(_translate("MainWindow", "CONCLUSION:"))
+        self.pushButton.setText(_translate("MainWindow", "submit"))
+        #self.label_4.setText(_translate("MainWindow", "img"))
+        self.DietPlan.setText(_translate("MainWindow", "DIET PLAN"))
+
+    def onclick(self):
+        height = self.lineEdit.text()
+        weight = self.lineEdit_2.text()
+        bmi_value = int(weight) / (int(height) * int(height))
+        if (bmi_value > 0):
+            if (bmi_value <= 16):
+
+                self.label_3.setText('yor BMI Index is:' + str(bmi_value) + '.....Your are  underweight')
+                self.DietPlan.setPixmap(QPixmap('gainwDietPlan.jpeg'))
 
 
+            elif (bmi_value <= 25):
+
+                self.label_3.setText('yor BMI Index is:' + str(bmi_value) + '.....Congrats! You are Healthy')
+            elif (bmi_value <= 30):
+                self.label_3.setText('yor BMI Index is:' + str(bmi_value) + '.....Your are  overweight')
+                self.DietPlan.setPixmap(QPixmap('losswDietPlan.jpg'))
+
+        else:
+            self.label_3.setText('enter valid details')
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    mainWindow = QtWidgets.QMainWindow()
-    ui = Ui_mainWindow()
-    ui.setupUi(mainWindow)
-    mainWindow.show()
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_SecondWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec_())
 
