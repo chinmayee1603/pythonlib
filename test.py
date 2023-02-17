@@ -87,6 +87,7 @@ class Ui_MainWindow(object):
                 toaster.show_toast("YOU CAN DO SOME EYE EXERCISE", duration=5,Threaded=True,
                                    callback_on_click=webbrowser.open_new("https://www.youtube.com/watch?v=R5N8TA0KFxc"))
 
+
             # time.sleep(10)
             Event().wait(5)
             notification.notify(
