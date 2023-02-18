@@ -29,6 +29,11 @@ class Ui_ThirdWindow(object):
         self.week4 = QtWidgets.QPushButton(self.centralwidget)
         self.week4.setGeometry(QtCore.QRect(560, 50, 171, 51))
         self.week4.setObjectName("week4")
+        self.labelrecog = QtWidgets.QLabel(self.centralwidget)
+        self.labelrecog.setGeometry(QtCore.QRect(20,100,171,51))
+        self.recog = QtWidgets.QPushButton(self.centralwidget)
+        self.recog.setGeometry(QtCore.QRect(380, 100, 171, 51))
+        self.recog.setObjectName("recog")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 10, 161, 31))
         self.label.setObjectName("label")
@@ -55,19 +60,15 @@ class Ui_ThirdWindow(object):
         self.week2.clicked.connect(self.week2w)
         self.week4.setText(_translate("MainWindow", "WEEK-4"))
         self.week4.clicked.connect(self.week4w)
+        self.recog.setText(_translate("MainWindow", "MOOD"))
+        self.recog.clicked.connect(self.moodRec)
         self.label.setText(_translate("MainWindow", "Weekly Mood Analysis"))
 
     def moodRec(self, MainWindow):
-        # This is a sample Python script.
-
-        # Press Shift+F10 to execute it or replace it with your code.
-        # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
         import cv2
         import numpy as np
         import tensorflow as tf
         from tensorflow import keras
-        import cv2
 
         # Open the default camera
         cap = cv2.VideoCapture(0)
@@ -79,9 +80,10 @@ class Ui_ThirdWindow(object):
         cap.release()
 
         # Save the image as a file
-        cv2.imwrite("image.jpg", frame)
+        cv2.imwrite("image(1).jpg", frame)
         # Load the image
-        img = cv2.imread("image.jpg", cv2.IMREAD_GRAYSCALE)
+        img = cv2.imread("image(1).jpg", cv2.IMREAD_GRAYSCALE)
+
         img = cv2.resize(img, (48, 48))
         img = np.array(img).reshape(-1, 48, 48, 1).astype("float32") / 255.0
 
@@ -90,10 +92,12 @@ class Ui_ThirdWindow(object):
 
         # Predict the emotion label
         emotion_labels = ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"]
+
         predictions = model.predict(img)
+
         emotion_label = emotion_labels[np.argmax(predictions[0])]
-        plt.show()
-        #print("The detected emotion is:", emotion_label)
+
+        self.labelrecog.setText(emotion_label)
 
     def week1w(self):
         df = pd.read_csv('week1.csv')
