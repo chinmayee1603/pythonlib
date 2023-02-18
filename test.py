@@ -25,6 +25,8 @@ class Ui_MainWindow(object):
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        MainWindow.setStyleSheet("Background-image:url(back.jpeg);")
+
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(70, 290, 161, 101))
         self.pushButton.setObjectName("pushButton")
@@ -35,20 +37,21 @@ class Ui_MainWindow(object):
         self.pushButton_3.setGeometry(QtCore.QRect(560, 290, 181, 101))
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton4 = QtWidgets.QPushButton(self.centralwidget,clicked=lambda : self.chatgpt())
-        self.pushButton4.setGeometry(QtCore.QRect(580, 450, 181, 101))
+
+        self.pushButton4.setGeometry(QtCore.QRect(320, 450, 181, 101))
         self.pushButton4.setObjectName("pushButton4")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(70, 30, 91, 21))
+        self.label.setGeometry(QtCore.QRect(70, 40, 91, 40))
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(70, 60, 91, 21))
+        self.label_2.setGeometry(QtCore.QRect(70, 70, 91, 40))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(70, 90, 91, 21))
+        self.label_3.setGeometry(QtCore.QRect(70, 100, 91, 50))
         self.label_3.setObjectName("label_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 30))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -64,7 +67,7 @@ class Ui_MainWindow(object):
         import tkinter as tk
 
         # Set up the OpenAI API client
-        openai.api_key = "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"
+        openai.api_key = "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"
 
         # Create the main window
         root = tk.Tk()
@@ -129,16 +132,16 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "Mental Health"))
         self.pushButton_3.setText(_translate("MainWindow", "Physical Health"))
         self.pushButton4.setText(_translate("MainWindow", "CHAT BOT"))
-        self.label.setText(_translate("MainWindow", "NAME :"))
-        self.label_2.setText(_translate("MainWindow", "AGE : "))
-        self.label_3.setText(_translate("MainWindow", "SEX : "))
+        self.label.setText(_translate("MainWindow", "Name :Shrutika"))
+        self.label_2.setText(_translate("MainWindow", "Age :25 "))
+        self.label_3.setText(_translate("MainWindow", "Gender : F"))
 
     def notify(self):
         c = 0;
         toaster = ToastNotifier()
         while c<4:
             # time.sleep(10)
-            Event().wait(5)
+            #Event().wait(5)
             notification.notify(
                 title="Water Break",
                 message="PLEASE TAKE WATER",
@@ -149,14 +152,14 @@ class Ui_MainWindow(object):
             # waiting time
             c=c+1;
             # time.sleep(10)
-            Event().wait(5)
+            #Event().wait(5)
             if (c == 2):
                 toaster.show_toast("YOU CAN DO SOME EYE EXERCISE", duration=5,Threaded=True,
                                    callback_on_click=webbrowser.open_new("https://www.youtube.com/watch?v=R5N8TA0KFxc"))
 
 
             # time.sleep(10)
-            Event().wait(5)
+            #Event().wait(5)
             notification.notify(
                 title="SCREENTIME EXCEEDED",
                 message="Please close your eyes for sometime you have exceeded the screen time limit.",
@@ -166,7 +169,7 @@ class Ui_MainWindow(object):
             )
             # waiting time
             # time.sleep(10)
-            Event().wait(5)
+            #Event().wait(5)
 
 
 

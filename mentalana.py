@@ -37,6 +37,19 @@ class Ui_ThirdWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 10, 161, 31))
         self.label.setObjectName("label")
+        self.a = QtWidgets.QLabel(self.centralwidget)
+        self.a.setGeometry(QtCore.QRect(20, 300, 100, 51))
+        self.b = QtWidgets.QLabel(self.centralwidget)
+        self.b.setGeometry(QtCore.QRect(20, 400, 100, 51))
+        self.c = QtWidgets.QLabel(self.centralwidget)
+        self.c.setGeometry(QtCore.QRect(20, 500, 100, 51))
+        self.d = QtWidgets.QLabel(self.centralwidget)
+        self.d.setGeometry(QtCore.QRect(20, 600, 100, 51))
+        self.e = QtWidgets.QLabel(self.centralwidget)
+        self.e.setGeometry(QtCore.QRect(20, 700, 100, 51))
+        self.f = QtWidgets.QLabel(self.centralwidget)
+        self.f.setGeometry(QtCore.QRect(20, 800, 100, 51))
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 782, 21))
@@ -62,6 +75,13 @@ class Ui_ThirdWindow(object):
         self.week4.clicked.connect(self.week4w)
         self.recog.setText(_translate("MainWindow", "MOOD"))
         self.recog.clicked.connect(self.moodRec)
+        self.a.setText(_translate("MainWindow", "0 - Angry"))
+        self.b.setText(_translate("MainWindow", "2 - Disgust"))
+        self.c.setText(_translate("MainWindow", "3 - Fear"))
+        self.d.setText(_translate("MainWindow", "4 - Happy"))
+        self.e.setText(_translate("MainWindow", "5 - Neutral"))
+        self.f.setText(_translate("MainWindow", "6 - Sad"))
+
         self.label.setText(_translate("MainWindow", "Weekly Mood Analysis"))
 
     def moodRec(self, MainWindow):
